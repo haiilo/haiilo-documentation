@@ -9,3 +9,9 @@ export const gitConfig = {
   branch: process.env.CATALYST_DOCS_BRANCH ?? 'docs/flat-component-docs',
   directory: process.env.CATALYST_DOCS_DIRECTORY ?? 'docs',
 };
+
+export const docsGitConfig = {
+  user: 'haiilo',
+  repo: 'haiilo-documentation',
+  branch: process.env.DOCS_GIT_BRANCH ?? 'main',
+};
