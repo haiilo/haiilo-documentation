@@ -1,19 +1,23 @@
 import { structure, type StructuredData } from 'fumadocs-core/mdx-plugins/remark-structure';
+import { createCompiler } from '@fumadocs/mdx-remote';
 import type { StaticSource } from 'fumadocs-core/source';
 import type { TOCItemType } from 'fumadocs-core/toc';
 import type { MDXContent } from 'mdx/types';
-import type { GitHubContentItem } from './catalyst-github';
-import { loadCatalystDocBundle } from './catalyst-github';
+import { docsRoute, gitConfig } from '../config';
+import type { GitHubContentItem } from './github';
+import { loadCatalystDocBundle } from './github';
 import {
   extractOverview,
-  mdCompiler,
-  mdxCompiler,
-  stripCatalystPreambleText,
+  prepareCatalystComponentDocs,
+  prepareCatalystComponentMdx,
   titleFromSlug,
-} from './catalyst-mdx';
-import { docsRoute, gitConfig } from './shared';
+} from './prepare';
 
-export interface CatalystPageData {
+const mdxCompiler = createCompiler({
+  development: process.env.NODE_ENV !== 'production',
+});
+
+interface CatalystPageData {
   title: string;
   description?: string;
   body: MDXContent;
@@ -24,7 +28,7 @@ export interface CatalystPageData {
   getText: (type: 'raw' | 'processed') => Promise<string>;
 }
 
-export interface CatalystMetaData {
+interface CatalystMetaData {
   title: string;
   defaultOpen?: boolean;
   pages?: string[];
@@ -66,9 +70,8 @@ ${cards}
 async function compileMarkdown(
   source: string,
   filePath: string,
-  compiler: typeof mdCompiler,
 ): Promise<{ body: MDXContent; toc: TOCItemType[] }> {
-  const compiled = await compiler.compile({ source, filePath });
+  const compiled = await mdxCompiler.compile({ source, filePath });
   return {
     body: compiled.body as MDXContent,
     toc: compiled.toc,
@@ -93,20 +96,20 @@ function pageFile(path: string, data: CatalystPageData): CatalystPageFile {
 }
 
 async function toComponentPage(file: GitHubContentItem, content: string): Promise<CatalystPageFile> {
-  const raw = content;
   const slug = fileSlug(file.name);
   const title = titleFromSlug(slug);
-  const processed = stripCatalystPreambleText(raw);
-  const compiled = await compileMarkdown(processed, file.path, mdCompiler);
+  const processed = prepareCatalystComponentDocs(content);
+  const mdx = prepareCatalystComponentMdx(processed);
+  const compiled = await compileMarkdown(mdx, file.path.replace(/\.md$/, '.mdx'));
 
   return pageFile(`components/${file.name}`, {
     title,
-    description: extractOverview(raw) ?? `Reference for the Catalyst ${title} component.`,
+    description: extractOverview(content) ?? `Reference for the Catalyst ${title} component.`,
     body: compiled.body,
     toc: compiled.toc,
     structuredData: structure(processed),
     githubPath: file.path,
-    getText: markdownText(raw, processed),
+    getText: markdownText(content, processed),
   });
 }
 
@@ -119,7 +122,7 @@ async function toComponentsIndex(pages: CatalystPageFile[]): Promise<CatalystPag
       };
     }),
   );
-  const compiled = await compileMarkdown(indexSource, 'components/index.mdx', mdxCompiler);
+  const compiled = await compileMarkdown(indexSource, 'components/index.mdx');
 
   return pageFile('components/index.mdx', {
     title: 'Components',

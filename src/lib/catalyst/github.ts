@@ -1,4 +1,4 @@
-import { gitConfig } from './shared';
+import { gitConfig } from '../config';
 
 export interface GitHubContentItem {
   name: string;
