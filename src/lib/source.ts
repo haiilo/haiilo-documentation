@@ -2,8 +2,8 @@ import { loader } from 'fumadocs-core/source';
 import { lucideIconsPlugin } from 'fumadocs-core/source/lucide-icons';
 import { metaSchema, pageSchema } from 'fumadocs-core/source/schema';
 import { defineDocs } from 'fumadocs-mdx/macro';
-import { createCatalystSource } from './catalyst-source';
-import { docsContentRoute, docsImageRoute, docsRoute, docsGitConfig, gitConfig } from './shared';
+import { createCatalystSource } from './catalyst/source';
+import { docsContentRoute, docsImageRoute, docsRoute, docsGitConfig, gitConfig } from './config';
 
 const docs = defineDocs({
   dir: 'content/docs',

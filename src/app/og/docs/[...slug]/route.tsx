@@ -2,7 +2,7 @@ import { getPageImageUrl, source } from '@/lib/source';
 import { notFound } from 'next/navigation';
 import { ImageResponse } from 'takumi-js/response';
 import { generate as DefaultImage } from 'fumadocs-ui/og/takumi';
-import { appName } from '@/lib/shared';
+import { appName } from '@/lib/config';
 
 export const revalidate = false;
 

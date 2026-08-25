@@ -6,12 +6,12 @@
     "build": "next build",
     "dev": "next dev",
     "start": "next start",
+    "test": "tsx --test src/lib/catalyst/prepare.test.ts",
     "types:check": "next typegen && tsc --noEmit",
     "lint": "oxlint"
   },
   "dependencies": {
     "@fumadocs/mdx-remote": "^1.5.1",
-    "cnfast": "^0.1.0",
     "fumadocs-core": "16.14.4",
     "fumadocs-mdx": "15.2.3",
     "fumadocs-ui": "npm:@fumadocs/base-ui@16.14.4",
@@ -19,7 +19,6 @@
     "next": "16.3.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "rehype-raw": "^7.0.0",
     "takumi-js": "^2.7.2"
   },
   "devDependencies": {
@@ -31,6 +30,7 @@
     "oxlint": "^1.78.0",
     "postcss": "^8.5.26",
     "tailwindcss": "^4.3.3",
+    "tsx": "^4.20.5",
     "typescript": "^6.0.3"
   }
 }
