@@ -10,6 +10,7 @@
     "lint": "oxlint"
   },
   "dependencies": {
+    "@fumadocs/mdx-remote": "^1.5.1",
     "cnfast": "^0.1.0",
     "fumadocs-core": "16.14.4",
     "fumadocs-mdx": "15.2.3",
@@ -18,6 +19,7 @@
     "next": "16.3.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "rehype-raw": "^7.0.0",
     "takumi-js": "^2.7.2"
   },
   "devDependencies": {
@@ -26,9 +28,9 @@
     "@types/node": "^26.2.0",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
+    "oxlint": "^1.78.0",
     "postcss": "^8.5.26",
     "tailwindcss": "^4.3.3",
-    "typescript": "^6.0.3",
-    "oxlint": "^1.78.0"
+    "typescript": "^6.0.3"
   }
 }
