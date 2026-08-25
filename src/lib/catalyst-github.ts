@@ -1,10 +1,3 @@
-import {
-  readCatalystCache,
-  shouldRefreshCache,
-  shouldUseCacheOnly,
-  writeCatalystCache,
-  type CatalystDocBundle,
-} from './catalyst-cache';
 import { gitConfig } from './shared';
 
 export interface GitHubContentItem {
@@ -12,6 +5,15 @@ export interface GitHubContentItem {
   path: string;
   type: string;
   download_url: string | null;
+}
+
+export interface CatalystDocBundle {
+  branch: string;
+  directory: string;
+  files: Array<{
+    item: GitHubContentItem;
+    content: string;
+  }>;
 }
 
 function githubToken(): string | undefined {
@@ -36,7 +38,7 @@ async function githubFetch(
 
   if (token) headers.Authorization = `Bearer ${token}`;
 
-  const res = await fetch(url, { headers, next: { revalidate: 60 } });
+  const res = await fetch(url, { headers, cache: 'no-store' });
 
   if (!res.ok && token && (res.status === 401 || res.status === 403)) {
     return githubFetch(url, accept, undefined);
@@ -76,7 +78,7 @@ async function readCatalystFileFromGitHub(item: GitHubContentItem): Promise<stri
   return res.text();
 }
 
-async function fetchCatalystDocBundleFromGitHub(): Promise<CatalystDocBundle> {
+export async function loadCatalystDocBundle(): Promise<CatalystDocBundle> {
   const items = await listCatalystDocsFromGitHub();
   const files = await Promise.all(
     items.map(async function loadFile(item) {
@@ -92,49 +94,4 @@ async function fetchCatalystDocBundleFromGitHub(): Promise<CatalystDocBundle> {
     directory: gitConfig.directory,
     files,
   };
-}
-
-export async function loadCatalystDocBundle(): Promise<CatalystDocBundle> {
-  const cached = shouldRefreshCache() ? null : await readCatalystCache();
-
-  if (cached) return cached;
-
-  if (shouldUseCacheOnly()) {
-    throw new Error(
-      'CATALYST_DOCS_OFFLINE is enabled but no catalyst cache was found. Run a build with network access first or disable CATALYST_DOCS_OFFLINE.',
-    );
-  }
-
-  try {
-    const bundle = await fetchCatalystDocBundleFromGitHub();
-    await writeCatalystCache(bundle);
-    return bundle;
-  } catch (error) {
-    const stale = await readCatalystCache();
-    if (stale) {
-      console.warn('Using cached catalyst docs because GitHub fetch failed:', error);
-      return stale;
-    }
-    throw error;
-  }
-}
-
-export async function listCatalystDocs(): Promise<GitHubContentItem[]> {
-  const bundle = await loadCatalystDocBundle();
-  return bundle.files.map(function toItem(file) {
-    return file.item;
-  });
-}
-
-export async function readCatalystFile(item: GitHubContentItem): Promise<string> {
-  const bundle = await loadCatalystDocBundle();
-  const match = bundle.files.find(function byPath(file) {
-    return file.item.path === item.path;
-  });
-
-  if (!match) {
-    throw new Error(`Catalyst doc not found in bundle: ${item.path}`);
-  }
-
-  return match.content;
 }
