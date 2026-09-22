@@ -1,0 +1,34 @@
+---
+title: "Alert"
+description: "Informs user about important changes or conditions in the interface. Use this component if you need to capture user’s attention in a prominent way."
+---
+
+```html preview
+<cat-alert>Label</cat-alert>
+```
+
+## Examples
+
+### Color variants
+
+Use the color prop to communicate severity or intent.
+
+```html preview
+<div class="cat-flex-col cat-gap-s">
+  <cat-alert color="primary"><strong>Info:</strong> New updates are available.</cat-alert>
+  <cat-alert color="success"><strong>Success:</strong> Your changes were saved.</cat-alert>
+  <cat-alert color="warning"><strong>Warning:</strong> This action cannot be undone.</cat-alert>
+  <cat-alert color="danger"><strong>Error:</strong> Failed to save changes.</cat-alert>
+</div>
+```
+
+### Custom icon
+
+```html preview
+<cat-alert color="info" icon="lightbulb-outlined">
+  <strong>Tip:</strong> Use keyboard shortcuts for faster navigation.
+</cat-alert>
+```
+
+<include cwd>content/catalyst/api/alert.mdx</include>
+

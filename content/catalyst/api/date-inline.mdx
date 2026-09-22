@@ -1,0 +1,74 @@
+## API reference
+
+<TypeTable type={{"a11yLabel":{"description":"Adds accessible label for the datepicker. The label will be read by assistive technology upon focusing the datepicker.","type":"string | undefined"},"hint":{"description":"Shows an arrow keys navigation hint.","type":"boolean","default":false},"identifier":{"description":"A unique identifier for the input.","type":"string | undefined"},"label":{"description":"The label for the input.","type":"string","default":""},"labelHidden":{"description":"Visually hide the label, but still show it to assistive technologies like screen readers.","type":"boolean","default":false},"max":{"description":"A maximum value for the date, given in local ISO 8601 date format YYYY-MM-DD.","type":"string | undefined"},"min":{"description":"A minimum value for the date, given in local ISO 8601 date format YYYY-MM-DD.","type":"string | undefined"},"noClear":{"description":"Hides the clear button.","type":"boolean","default":false},"noToday":{"description":"Hides the today button.","type":"boolean","default":false},"range":{"description":"Allow the selection of a range of dates, i.e. start and end date.","type":"boolean","default":false},"required":{"description":"A value is required or must be check for the form to be submittable.","type":"boolean","default":false},"requiredMarker":{"description":"Whether the label need a marker to shown if the input is required or optional.","type":"\"none!\" | \"none\" | \"optional!\" | \"optional\" | \"required!\" | \"required\" | undefined","default":"optional"},"value":{"description":"The value of the control, given in local ISO 8601 date format YYYY-MM-DD.","type":"string | undefined"},"weeks":{"description":"Show week numbers.","type":"boolean","default":false}}} />
+
+
+
+## Events
+
+| Event       | Description                        | Type                  |
+| ----------- | ---------------------------------- | --------------------- |
+| `catChange` | Emitted when the value is changed. | `CustomEvent<string>` |
+
+
+## Methods
+
+`clear() => Promise<void>`
+
+Clear the picker.
+
+Returns
+
+Type: `Promise<void>`
+
+
+
+`doFocus(options?: FocusOptions) => Promise<void>`
+
+Programmatically move focus to the inline datepicker, i,e, the first
+focusable date.
+
+Parameters
+
+| Name      | Type                        | Description                                                                      |
+| --------- | --------------------------- | -------------------------------------------------------------------------------- |
+| `options` | `FocusOptions \| undefined` | An optional object providing options to control aspects of the focusing process. |
+
+Returns
+
+Type: `Promise<void>`
+
+
+
+`resetView() => Promise<void>`
+
+Resets the view of the picker.
+
+Returns
+
+Type: `Promise<void>`
+
+
+
+`select(date: Date | null) => Promise<void>`
+
+Select a date in the picker.
+
+Parameters
+
+| Name   | Type           | Description         |
+| ------ | -------------- | ------------------- |
+| `date` | `Date \| null` | The date to select. |
+
+Returns
+
+Type: `Promise<void>`
+
+
+
+
+## Shadow Parts
+
+| Part      | Description               |
+| --------- | ------------------------- |
+| `"label"` | The native label element. |

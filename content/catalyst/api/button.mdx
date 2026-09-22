@@ -1,0 +1,64 @@
+## API reference
+
+<TypeTable type={{"a11yCurrent":{"description":"Sets the aria-current attribute on the button.","type":"string | undefined"},"a11yLabel":{"description":"Adds accessible label for the button that is only shown for screen readers. Typically, this label text replaces the visible text on the button for users who use assistive technology.","type":"string | undefined"},"active":{"description":"Set the button into an active state.","type":"boolean","default":false},"buttonGroupPosition":{"description":"The index of a button that is used inside a button-group component","type":"\"first\" | \"last\" | \"middle\" | undefined"},"buttonId":{"description":"Adds a unique identifier for the button. Please note that with this particular component this ID is added inside the web component. If you need an ID on the HTML element, use the regular id attribute instead.","type":"string | undefined"},"color":{"description":"The color palette of the button.","type":"\"danger\" | \"info\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"","default":"secondary"},"disabled":{"description":"Specifies that the button should be disabled. A disabled button is unusable and un-clickable. Corresponds with the native HTML disabled attribute.","type":"boolean","default":false},"icon":{"description":"The name of an icon to be displayed in the button.","type":"string | undefined"},"iconOnly":{"description":"Hide the actual button content and only display the icon.","type":"\"l\" | \"m\" | \"s\" | \"xl\" | \"xs\" | boolean","default":false},"iconRight":{"description":"Display the icon on the right.","type":"boolean","default":false},"loading":{"description":"Displays the button in a loading state with a spinner. Just like a disabled button, an inactive button is unusable and un-clickable. However, it retains the current focus state.","type":"boolean","default":false},"name":{"description":"The name of the button, which gets paired with the button's value when submitted as part of a form. Corresponds with the native HTML name attribute.","type":"string | undefined"},"nativeAttributes":{"description":"Attributes that will be added to the native HTML button element","type":"undefined | { [key: string]: string; }"},"nativeContentAttributes":{"description":"Attributes that will be added to the native HTML button content element","type":"undefined | { [key: string]: string; }"},"noEllipsis":{"description":"Disables ellipse overflowing button content.","type":"boolean","default":false},"round":{"description":"Use round button edges.","type":"boolean","default":false},"size":{"description":"The size of the button.","type":"\"l\" | \"m\" | \"s\" | \"xl\" | \"xs\"","default":"m"},"submit":{"description":"Allows the button to submit a form.","type":"boolean","default":false},"testId":{"description":"A unique identifier for the underlying native element that is used for testing purposes. The attribute is added as data-test attribute and acts as a shorthand for nativeAttributes={ 'data-test': 'test-Id' }.","type":"string | undefined"},"url":{"description":"A destination to link to, rendered in the href attribute of a link.","type":"string | undefined"},"urlTarget":{"description":"Specifies where to open the linked document.","type":"\"_blank\" | \"_self\" | undefined"},"value":{"description":"The value of the button, which gets paired with the button's name when submitted as part of a form. Corresponds with the native HTML value attribute.","type":"string | undefined"},"variant":{"description":"The rendering style of the button.","type":"\"filled\" | \"link\" | \"outlined\" | \"text\"","default":"outlined"}}} />
+
+
+
+## Events
+
+| Event      | Description                             | Type                      |
+| ---------- | --------------------------------------- | ------------------------- |
+| `catBlur`  | Emitted when the button loses focus.    | `CustomEvent<FocusEvent>` |
+| `catClick` | Emitted when the button is clicked.     | `CustomEvent<MouseEvent>` |
+| `catFocus` | Emitted when the button received focus. | `CustomEvent<FocusEvent>` |
+
+
+## Methods
+
+`doBlur() => Promise<void>`
+
+Programmatically remove focus from the button. Use this method instead of
+`button.blur()`.
+
+Returns
+
+Type: `Promise<void>`
+
+
+
+`doClick() => Promise<void>`
+
+Programmatically simulate a click on the button.
+
+Returns
+
+Type: `Promise<void>`
+
+
+
+`doFocus(options?: FocusOptions) => Promise<void>`
+
+Programmatically move focus to the button. Use this method instead of
+`button.focus()`.
+
+Parameters
+
+| Name      | Type                        | Description                                                                      |
+| --------- | --------------------------- | -------------------------------------------------------------------------------- |
+| `options` | `FocusOptions \| undefined` | An optional object providing options to control aspects of the focusing process. |
+
+Returns
+
+Type: `Promise<void>`
+
+
+
+
+## Shadow Parts
+
+| Part        | Description                          |
+| ----------- | ------------------------------------ |
+| `"button"`  | The native anchor or button element. |
+| `"content"` | The textual content of the button.   |
+| `"prefix"`  | The prefix icon.                     |
+| `"suffix"`  | The suffix icon.                     |

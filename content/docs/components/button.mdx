@@ -1,0 +1,40 @@
+---
+title: "Button"
+description: "Buttons are used for interface actions. Primary style should be used only once per view for main call-to-action."
+---
+
+```html preview
+<cat-button>Label</cat-button>
+```
+
+## Examples
+
+### Variants
+
+Use variant and color to set the visual style of the button.
+
+```html preview
+<div class="cat-flex-row cat-gap-s cat-flex-wrap cat-items-center">
+  <cat-button variant="filled" color="primary">Primary</cat-button>
+  <cat-button variant="outlined">Secondary</cat-button>
+  <cat-button variant="text" color="danger">Delete</cat-button>
+</div>
+```
+
+### With icon
+
+```html preview
+<div class="cat-flex-row cat-gap-s cat-items-center">
+  <cat-button icon="plus-outlined" color="primary" variant="filled">Add item</cat-button>
+  <cat-button icon="settings-outlined" icon-only a11y-label="Settings"></cat-button>
+</div>
+```
+
+### Loading state
+
+```html preview
+<cat-button loading color="primary" variant="filled">Processing…</cat-button>
+```
+
+<include cwd>content/catalyst/api/button.mdx</include>
+

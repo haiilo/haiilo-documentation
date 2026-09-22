@@ -4,7 +4,7 @@ const withMDX = createMDX();
 
 /** @type {import('next').NextConfig} */
 const config = {
-  serverExternalPackages: ['@takumi-rs/core', '@fumadocs/mdx-remote'],
+  serverExternalPackages: ['@takumi-rs/core'],
   reactStrictMode: true,
   async redirects() {
     return [

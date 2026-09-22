@@ -1,0 +1,64 @@
+## API reference
+
+<TypeTable type={{"activeTab":{"description":"The ID of the active tab.","type":"string","default":""},"activeTabAlwaysVisible":{"description":"Whether the active tab should always be visible. Applied when adaptive is enabled. Has less priority than sticky if there is no space to show both.","type":"boolean","default":false},"adaptive":{"description":"Whether the visible items change according to the available space. A 'More' button is used to reveal hidden items.","type":"boolean","default":false},"tabsAlign":{"description":"The alignment of the tabs.","type":"\"center\" | \"justify\" | \"left\" | \"right\"","default":"left"}}} />
+
+
+
+## Events
+
+| Event       | Description                         | Type                                                                 |
+| ----------- | ----------------------------------- | -------------------------------------------------------------------- |
+| `catChange` | Emitted when active tab is changed. | `CustomEvent<{ id: string; index: number; fromDropdown: boolean; }>` |
+
+
+## Methods
+
+`setActive(id: string) => Promise<void>`
+
+Activates the tab with the given id.
+
+Parameters
+
+| Name | Type     | Description |
+| ---- | -------- | ----------- |
+| `id` | `string` | The tab id. |
+
+Returns
+
+Type: `Promise<void>`
+
+
+
+`setActiveIndex(index: number) => Promise<void>`
+
+Activates the tab with the given index.
+
+Parameters
+
+| Name    | Type     | Description    |
+| ------- | -------- | -------------- |
+| `index` | `number` | The tab index. |
+
+Returns
+
+Type: `Promise<void>`
+
+
+
+`updateAdaptiveTabs() => Promise<void>`
+
+Recalculates visible and hidden adaptive tabs.
+
+Returns
+
+Type: `Promise<void>`
+
+
+
+
+## Shadow Parts
+
+| Part     | Description                                         |
+| -------- | --------------------------------------------------- |
+| `"more"` | An optional more button to display additional tabs. |
+| `"tab"`  | The header of the tab.                              |

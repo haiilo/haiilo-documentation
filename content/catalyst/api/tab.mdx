@@ -1,0 +1,11 @@
+## API reference
+
+<TypeTable type={{"deactivated":{"description":"Specifies that the tab should be deactivated.","type":"boolean","default":false},"error":{"description":"Specifies that the tab content pane contains an error. This will color the tab in an error state and also switch to an error icon if an icon is specified.","type":"boolean","default":false},"icon":{"description":"The name of an icon to be displayed in the tab.","type":"string | undefined"},"iconOnly":{"description":"Hide the actual button content and only display the tab.","type":"\"l\" | \"m\" | \"s\" | \"xl\" | \"xs\" | boolean","default":false},"iconRight":{"description":"Display the icon on the right.","type":"boolean","default":false},"label":{"description":"The label of the tab.","type":"string","default":""},"nativeAttributes":{"description":"Attributes that will be added to the native HTML button element","type":"undefined | { [key: string]: string; }"},"noActive":{"description":"Specifies that the tab does not have an active state and thus cannot be activated. This does not mean, that the tab is deactivated. The tab can still be clicked and emit the catClick event. This is helpful if a tab should only trigger a click action (such as opening a modal).","type":"boolean","default":false},"sticky":{"description":"Specifies that the tab is always visible in adaptive mode. Only the first sticky tab will be taken into account. Sticky has advantage on activeTabAlwaysVisible if there is no space to show both.","type":"boolean","default":false},"testId":{"description":"A unique identifier for the underlying native element that is used for testing purposes. The attribute is added as data-test attribute and acts as a shorthand for nativeAttributes={ 'data-test': 'test-Id' }.","type":"string | undefined"},"url":{"description":"A destination to link to, rendered in the href attribute of a link.","type":"string | undefined"},"urlTarget":{"description":"Specifies where to open the linked document.","type":"\"_blank\" | \"_self\" | undefined"}}} />
+
+
+
+## Events
+
+| Event      | Description                  | Type                      |
+| ---------- | ---------------------------- | ------------------------- |
+| `catClick` | Emitted when tab is clicked. | `CustomEvent<MouseEvent>` |

@@ -1,0 +1,53 @@
+## API reference
+
+<TypeTable type={{"arrowNavigation":{"description":"The arrow key navigation direction for menu items.","type":"\"horizontal\" | \"vertical\"","default":"vertical"},"delayedTriggerInit":{"description":"Whether the dropdown trigger should be initialized only before first opening. Can be useful when trigger is rendered dynamically.","type":"boolean","default":false},"disabled":{"description":"Disable the menu.","type":"boolean","default":false},"justify":{"description":"Make the dropdown match the width of the reference regardless of its contents. Note that this only applies to the minimum width of the dropdown. The maximum width is still limited by the viewport.","type":"boolean","default":false},"noResize":{"description":"Do not change the size of the dropdown to ensure it isn’t too big to fit in the viewport (or more specifically, its clipping context).","type":"boolean","default":false},"overflow":{"description":"Allow overflow when dropdown is open.","type":"boolean","default":false},"placement":{"description":"The placement of the dropdown.","type":"\"bottom\" | \"bottom-end\" | \"bottom-start\" | \"left\" | \"left-end\" | \"left-start\" | \"right\" | \"right-end\" | \"right-start\" | \"top\" | \"top-end\" | \"top-start\"","default":"bottom-start"},"triggerA11yLabel":{"description":"The trigger button accessibility label. If not set, falls back to triggerLabel.","type":"string | undefined"},"triggerClass":{"description":"Additional CSS class for the trigger button.","type":"string | undefined"},"triggerColor":{"description":"The color palette of the trigger button.","type":"\"danger\" | \"info\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"","default":"secondary"},"triggerIcon":{"description":"The trigger button icon.","type":"string | undefined"},"triggerIconOnly":{"description":"Show only the icon in the trigger button.","type":"\"l\" | \"m\" | \"s\" | \"xl\" | \"xs\" | boolean | undefined"},"triggerIconRight":{"description":"Icon right flag for the trigger button.","type":"boolean | undefined"},"triggerLabel":{"description":"The trigger button label.","type":"string | undefined"},"triggerNativeAttributes":{"description":"Native attributes for the trigger button.","type":"undefined | { [key: string]: string; }"},"triggerRound":{"description":"Round flag for the trigger button.","type":"boolean | undefined"},"triggerSize":{"description":"The trigger button size.","type":"\"l\" | \"m\" | \"s\" | \"xl\" | \"xs\"","default":"m"},"triggerTestId":{"description":"Test ID for the trigger button.","type":"string | undefined"},"triggerVariant":{"description":"The trigger button variant.","type":"\"filled\" | \"outlined\" | \"text\"","default":"text"}}} />
+
+
+
+## Events
+
+| Event             | Description                                 | Type                      |
+| ----------------- | ------------------------------------------- | ------------------------- |
+| `catClose`        | Emitted when the dropdown is closed.        | `CustomEvent<FocusEvent>` |
+| `catOpen`         | Emitted when the dropdown is opened.        | `CustomEvent<FocusEvent>` |
+| `catTriggerClick` | Emitted when the trigger button is clicked. | `CustomEvent<MouseEvent>` |
+
+
+## Methods
+
+`close() => Promise<void>`
+
+Closes the menu.
+
+Returns
+
+Type: `Promise<void>`
+
+
+
+`open() => Promise<void>`
+
+Opens the menu.
+
+Returns
+
+Type: `Promise<void>`
+
+
+
+`toggle() => Promise<void>`
+
+Toggles the menu.
+
+Returns
+
+Type: `Promise<void>`
+
+
+
+
+## Shadow Parts
+
+| Part        | Description |
+| ----------- | ----------- |
+| `"trigger"` |             |

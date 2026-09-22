@@ -1,0 +1,39 @@
+---
+title: "Select"
+description: "Select lets user choose one option from an options' menu. Consider using select when you have 6 or more options. Select component supports any content type."
+---
+
+```html preview
+<cat-select label="Country" placeholder="Select a country" clearable></cat-select>
+```
+
+## Examples
+
+Options are provided at runtime with `connect()`. These previews show the field chrome only.
+
+### Single select
+
+```html preview
+<cat-select label="Country" placeholder="Select a country" clearable></cat-select>
+```
+
+### Multiple select
+
+```html preview
+<cat-select label="Skills" placeholder="Select skills" multiple clearable></cat-select>
+```
+
+### Tagging
+
+```html preview
+<cat-select
+  label="Tags"
+  placeholder="Add tags"
+  tags
+  tag-hint="Press Enter to create"
+  multiple
+></cat-select>
+```
+
+<include cwd>content/catalyst/api/select.mdx</include>
+

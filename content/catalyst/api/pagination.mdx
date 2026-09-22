@@ -1,0 +1,11 @@
+## API reference
+
+<TypeTable type={{"activePadding":{"description":"The number of pages to be shown around the current page.","type":"number","default":1},"compact":{"description":"Use compact pagination mode.","type":"boolean","default":false},"iconNext":{"description":"The icon of the \"next\" button.","type":"string","default":"$cat:pagination-right"},"iconPrev":{"description":"The icon of the \"previous\" button.","type":"string","default":"$cat:pagination-left"},"page":{"description":"The current page.","type":"number","default":0},"pageCount":{"description":"The total number of pages.","type":"number","default":1},"round":{"description":"Use round button edges.","type":"boolean","default":false},"sidePadding":{"description":"The number of pages to be shown at the edges.","type":"number","default":1},"size":{"description":"The size of the buttons.","type":"\"l\" | \"m\" | \"s\" | \"xl\" | \"xs\"","default":"m"},"variant":{"description":"The rendering style of the buttons.","type":"\"filled\" | \"outlined\" | \"text\"","default":"text"}}} />
+
+
+
+## Events
+
+| Event       | Description                                          | Type                  |
+| ----------- | ---------------------------------------------------- | --------------------- |
+| `catChange` | Emitted when the page of the pagination has changed. | `CustomEvent<number>` |

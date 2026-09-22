@@ -1,0 +1,71 @@
+## API reference
+
+<TypeTable type={{"autoComplete":{"description":"Hint for form autofill feature.","type":"string","default":"off"},"disabled":{"description":"Whether the textarea is disabled.","type":"boolean","default":false},"errorUpdate":{"description":"Fine-grained control over when the errors are shown. Can be false to never show errors, true to show errors on blur, or a number to show errors change with the given delay in milliseconds or immediately on blur.","type":"boolean | number","default":0},"errors":{"description":"The validation errors for this input. Will render a hint under the input with the translated error message(s) error.${key}. If an object is passed, the keys will be used as error keys and the values translation parameters. If the value is true, the input will be marked as invalid without any hints under the input.","type":"boolean | string[] | undefined | { [key: string]: any; }"},"hint":{"description":"Optional hint text(s) to be displayed with the textarea.","type":"string | string[] | undefined"},"horizontal":{"description":"Whether the label is on top or left.","type":"boolean | undefined"},"identifier":{"description":"A unique identifier for the input.","type":"string | undefined"},"label":{"description":"The label for the textarea.","type":"string","default":""},"labelHidden":{"description":"Visually hide the label, but still show it to assistive technologies like screen readers.","type":"boolean","default":false},"maxLength":{"description":"A maximum length (number of characters) for textual values.","type":"number | undefined"},"minLength":{"description":"A minimum length (number of characters) for textual values.","type":"number | undefined"},"name":{"description":"The name of the form control. Submitted with the form as part of a name/value pair.","type":"string | undefined"},"nativeAttributes":{"description":"Attributes that will be added to the native HTML textarea element.","type":"undefined | { [key: string]: string; }"},"placeholder":{"description":"The placeholder text to display within the input.","type":"string | undefined"},"readonly":{"description":"The value is not editable.","type":"boolean","default":false},"required":{"description":"A value is required or must be check for the form to be submittable.","type":"boolean","default":false},"requiredMarker":{"description":"Whether the label need a marker to shown if the textarea is required or optional.","type":"\"none!\" | \"none\" | \"optional!\" | \"optional\" | \"required!\" | \"required\" | undefined","default":"optional"},"rows":{"description":"Specifies the initial number of lines in the textarea.","type":"number","default":3},"testId":{"description":"A unique identifier for the underlying native element that is used for testing purposes. The attribute is added as data-test attribute and acts as a shorthand for nativeAttributes={ 'data-test': 'test-Id' }.","type":"string | undefined"},"value":{"description":"The initial value of the control.","type":"string | undefined"}}} />
+
+
+
+## Events
+
+| Event       | Description                               | Type                      |
+| ----------- | ----------------------------------------- | ------------------------- |
+| `catBlur`   | Emitted when the textarea loses focus.    | `CustomEvent<FocusEvent>` |
+| `catChange` | Emitted when the value is changed.        | `CustomEvent<string>`     |
+| `catFocus`  | Emitted when the textarea received focus. | `CustomEvent<FocusEvent>` |
+
+
+## Methods
+
+`clear() => Promise<void>`
+
+Clear the textarea.
+
+Returns
+
+Type: `Promise<void>`
+
+
+
+`doBlur() => Promise<void>`
+
+Programmatically remove focus from the textarea. Use this method instead of
+`textarea.blur()`.
+
+Returns
+
+Type: `Promise<void>`
+
+
+
+`doFocus(options?: FocusOptions) => Promise<void>`
+
+Programmatically move focus to the textarea. Use this method instead of
+`textarea.focus()`.
+
+Parameters
+
+| Name      | Type                        | Description                                                                      |
+| --------- | --------------------------- | -------------------------------------------------------------------------------- |
+| `options` | `FocusOptions \| undefined` | An optional object providing options to control aspects of the focusing process. |
+
+Returns
+
+Type: `Promise<void>`
+
+
+
+
+## Slots
+
+| Slot        | Description                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------- |
+| `"counter"` | Custom counter element to be displayed in the top right corner of the label.                                         |
+| `"hint"`    | Optional hint element to be displayed with the textarea.                                                             |
+| `"label"`   | The slotted label. If both the label property and the label slot are present, only the label slot will be displayed. |
+
+
+## Shadow Parts
+
+| Part         | Description                  |
+| ------------ | ---------------------------- |
+| `"label"`    | The native label element.    |
+| `"textarea"` | The native textarea element. |

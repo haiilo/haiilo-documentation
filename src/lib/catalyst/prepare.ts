@@ -51,7 +51,7 @@ export function prepareCatalystComponentDocs(content: string): string {
   return stripCatalystPreambleText(content).replace(STENCIL_PROPERTIES_HEADING, API_REFERENCE_HEADING);
 }
 
-/** MDX for rendered component pages. Replaces the API reference table with TypeTable. */
+/** MDX for rendered API fragments. Replaces the API reference table with TypeTable. */
 export function prepareCatalystComponentMdx(processed: string): string {
   return escapeMdxExpressionSyntax(replaceApiReferenceTableWithTypeTable(processed));
 }
