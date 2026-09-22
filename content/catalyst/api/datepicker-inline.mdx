@@ -1,0 +1,11 @@
+## API reference
+
+<TypeTable type={{"disabled":{"description":"Whether the input is disabled.","type":"boolean","default":false},"max":{"description":"A maximum value as ISO Date string, e.g. 2017-03-04T01:23:43.000Z.","type":"string | undefined"},"min":{"description":"A minimum value as ISO Date string, e.g. 2017-03-04T01:23:43.000Z.","type":"string | undefined"},"mode":{"description":"The mode of the datepicker, to select a date, time, both, a date range or a week number.","type":"\"date\" | \"daterange\" | \"datetime\" | \"time\" | \"week\"","default":"date"},"nativePickerAttributes":{"description":"Attributes that will be added to the rendered HTML datepicker element.","type":"undefined | { [key: string]: string; }"},"readonly":{"description":"The value is not editable.","type":"boolean","default":false},"step":{"description":"The step size to use when changing the time.","type":"number","default":5},"value":{"description":"The value as ISO Date string, e.g. 2017-03-04T01:23:43.000Z or as a week number string.","type":"string | undefined"}}} />
+
+
+
+## Events
+
+| Event       | Description                        | Type                  |
+| ----------- | ---------------------------------- | --------------------- |
+| `catChange` | Emitted when the value is changed. | `CustomEvent<string>` |

@@ -1,0 +1,14 @@
+## API reference
+
+<TypeTable type={{"noOverflowX":{"description":"Flags to disable/enable overflowX.","type":"boolean","default":false},"noOverflowY":{"description":"Flags to disable/enable overflowY.","type":"boolean","default":false},"noOverscroll":{"description":"Flag to disable/enable overscroll behavior.","type":"boolean","default":false},"noScrolledInit":{"description":"Flag to not fire an initial event after content initialization.","type":"boolean","default":false},"noShadowX":{"description":"Flags to disable/enable scroll shadowX.","type":"boolean","default":false},"noShadowY":{"description":"Flags to disable/enable scroll shadowY.","type":"boolean","default":false},"scrolledBuffer":{"description":"Buffer to be used to calculate the scroll distance.","type":"number","default":0}}} />
+
+
+
+## Events
+
+| Event            | Description                                               | Type                |
+| ---------------- | --------------------------------------------------------- | ------------------- |
+| `scrolledBottom` | Emitted when the content is fully scrolled to the bottom. | `CustomEvent<void>` |
+| `scrolledLeft`   | Emitted when the content is fully scrolled to the left.   | `CustomEvent<void>` |
+| `scrolledRight`  | Emitted when the content is fully scrolled to the right.  | `CustomEvent<void>` |
+| `scrolledTop`    | Emitted when the content is fully scrolled to the top.    | `CustomEvent<void>` |

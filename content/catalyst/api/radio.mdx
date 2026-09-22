@@ -1,0 +1,60 @@
+## API reference
+
+<TypeTable type={{"alignment":{"description":"The alignment of the checkbox.","type":"\"bottom\" | \"center\" | \"top\"","default":"top"},"checked":{"description":"Whether this radio is checked.","type":"boolean","default":false},"disabled":{"description":"Whether this radio is disabled.","type":"boolean","default":false},"hint":{"description":"Optional hint text(s) to be displayed with the radio.","type":"string | string[] | undefined"},"identifier":{"description":"A unique identifier for the input.","type":"string | undefined"},"label":{"description":"The label of the radio that is visible.","type":"string","default":""},"labelHidden":{"description":"Visually hide the label, but still show it to assistive technologies like screen readers.","type":"boolean","default":false},"labelLeft":{"description":"Whether the label should appear to the left of the radio component.","type":"boolean","default":false},"name":{"description":"The name of the radio component.","type":"string | undefined"},"nativeAttributes":{"description":"Attributes that will be added to the native HTML input element.","type":"undefined | { [key: string]: string; }"},"required":{"description":"Whether the radio is required.","type":"boolean","default":false},"testId":{"description":"A unique identifier for the underlying native element that is used for testing purposes. The attribute is added as data-test attribute and acts as a shorthand for nativeAttributes={ 'data-test': 'test-Id' }.","type":"string | undefined"},"value":{"description":"The value of the radio component.","type":"any","default":""}}} />
+
+
+
+## Events
+
+| Event       | Description                            | Type                             |
+| ----------- | -------------------------------------- | -------------------------------- |
+| `catBlur`   | Emitted when the radio loses focus.    | `CustomEvent<FocusEvent>`        |
+| `catChange` | Emitted when the radio is changed.     | `CustomEvent<boolean \| string>` |
+| `catFocus`  | Emitted when the radio received focus. | `CustomEvent<FocusEvent>`        |
+
+
+## Methods
+
+`doBlur() => Promise<void>`
+
+Programmatically remove focus from the radio button. Use this method
+instead of `input.blur()`.
+
+Returns
+
+Type: `Promise<void>`
+
+
+
+`doFocus(options?: FocusOptions) => Promise<void>`
+
+Programmatically move focus to the radio button. Use this method instead of
+`input.focus()`.
+
+Parameters
+
+| Name      | Type                        | Description                                                                      |
+| --------- | --------------------------- | -------------------------------------------------------------------------------- |
+| `options` | `FocusOptions \| undefined` | An optional object providing options to control aspects of the focusing process. |
+
+Returns
+
+Type: `Promise<void>`
+
+
+
+
+## Slots
+
+| Slot      | Description                                                                                                          |
+| --------- | -------------------------------------------------------------------------------------------------------------------- |
+| `"hint"`  | Optional hint element to be displayed with the radio.                                                                |
+| `"label"` | The slotted label. If both the label property and the label slot are present, only the label slot will be displayed. |
+
+
+## Shadow Parts
+
+| Part      | Description               |
+| --------- | ------------------------- |
+| `"input"` | The native input element. |
+| `"label"` | The label content.        |

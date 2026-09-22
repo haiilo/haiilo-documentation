@@ -1,0 +1,37 @@
+---
+title: "Checkbox"
+description: "Checkboxes are used to let a user choose one or more options from a limited number of options."
+---
+
+```html preview
+<cat-checkbox label="I agree to the terms"></cat-checkbox>
+```
+
+## Examples
+
+### Basic checkbox
+
+```html preview
+<cat-checkbox label="I agree to the terms" name="terms" required></cat-checkbox>
+```
+
+### With hint
+
+```html preview
+<cat-checkbox
+  label="Subscribe to newsletter"
+  hint="Get weekly product updates"
+  checked
+></cat-checkbox>
+```
+
+### Indeterminate
+
+Useful for “select all” patterns in lists.
+
+```html preview
+<cat-checkbox label="Select all items" indeterminate></cat-checkbox>
+```
+
+<include cwd>content/catalyst/api/checkbox.mdx</include>
+

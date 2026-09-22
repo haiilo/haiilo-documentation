@@ -3,15 +3,21 @@
   "version": "0.0.15",
   "private": true,
   "scripts": {
+    "prebuild": "node --import tsx scripts/prebuild.mjs",
     "build": "next build",
     "dev": "next dev",
     "start": "next start",
-    "test": "tsx --test src/lib/catalyst/prepare.test.ts",
+    "sync:catalyst-assets": "mkdir -p public/catalyst/assets && cp node_modules/@haiilo/catalyst/dist/catalyst/catalyst.css public/catalyst/ && cp -R node_modules/@haiilo/catalyst/dist/catalyst/assets/. public/catalyst/assets/ && cp node_modules/@haiilo/catalyst-tokens/dist/css/variables.css public/catalyst/",
+    "sync:catalyst-docs": "tsx scripts/sync-catalyst-docs.mjs",
+    "postinstall": "pnpm sync:catalyst-assets",
+    "test": "tsx --test src/lib/catalyst/*.test.ts",
     "types:check": "next typegen && tsc --noEmit",
     "lint": "oxlint"
   },
   "dependencies": {
-    "@fumadocs/mdx-remote": "^1.5.1",
+    "@haiilo/catalyst": "^14.13.0",
+    "@haiilo/catalyst-icons": "^2.34.6",
+    "@haiilo/catalyst-tokens": "^14.13.0",
     "fumadocs-core": "16.14.4",
     "fumadocs-mdx": "15.2.3",
     "fumadocs-ui": "npm:@fumadocs/base-ui@16.14.4",

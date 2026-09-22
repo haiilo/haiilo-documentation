@@ -1,0 +1,13 @@
+## API reference
+
+<TypeTable type={{"a11yLabel":{"description":"Adds an accessible label for the radio group that it is only shown in assistive technologies, like screen readers.","type":"string | undefined"},"disabled":{"description":"Whether this radio group is disabled.","type":"boolean","default":false},"labelLeft":{"description":"Whether the label of the radios should appear to the left of them.","type":"boolean","default":false},"name":{"description":"The name of the radio group component.","type":"string | undefined"},"value":{"description":"The value of the radio group.","type":"any"}}} />
+
+
+
+## Events
+
+| Event       | Description                                  | Type                             |
+| ----------- | -------------------------------------------- | -------------------------------- |
+| `catBlur`   | Emitted when the radio group loses focus.    | `CustomEvent<FocusEvent>`        |
+| `catChange` | Emitted when the value is changed.           | `CustomEvent<boolean \| string>` |
+| `catFocus`  | Emitted when the radio group received focus. | `CustomEvent<FocusEvent>`        |

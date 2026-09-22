@@ -1,0 +1,21 @@
+## API reference
+
+<TypeTable type={{"addOnBlur":{"description":"Whether new tag is added when the input is blurred.","type":"boolean","default":false},"clearable":{"description":"Whether the input should show a clear button.","type":"boolean","default":false},"disabled":{"description":"Whether the select is disabled.","type":"boolean","default":false},"errorUpdate":{"description":"Fine-grained control over when the errors are shown. Can be false to never show errors, true to show errors on blur, or a number to show errors change with the given delay in milliseconds or immediately on blur.","type":"boolean | number","default":0},"errors":{"description":"The validation errors for this input. Will render a hint under the input with the translated error message(s) error.${key}. If an object is passed, the keys will be used as error keys and the values translation parameters. If the value is true, the input will be marked as invalid without any hints under the input.","type":"boolean | string[] | undefined | { [key: string]: any; }"},"hint":{"description":"Optional hint text(s) to be displayed with the select.","type":"string | string[] | undefined"},"identifier":{"description":"A unique identifier for the input.","type":"string | undefined"},"label":{"description":"The label for the select.","type":"string","default":""},"labelHidden":{"description":"Visually hide the label, but still show it to assistive technologies like screen readers.","type":"boolean","default":false},"name":{"description":"The name of the form control. Submitted with the form as part of a name/value pair.","type":"string | undefined"},"nativeAttributes":{"description":"Attributes that will be added to the native HTML input element.","type":"undefined | { [key: string]: string; }"},"placeholder":{"description":"The placeholder text to display within the select.","type":"string | undefined"},"required":{"description":"A value is required or must be checked for the form to be submittable.","type":"boolean","default":false},"requiredMarker":{"description":"Whether the label need a marker to shown if the select is required or optional.","type":"\"none!\" | \"none\" | \"optional!\" | \"optional\" | \"required!\" | \"required\" | undefined","default":"optional"},"tagCreationChars":{"description":"List of characters that should create a new tag. This need to be comparable to keydownEvent.key. Pasted values will also be split by those chars. Defaults to [' '].","type":"string[]","default":"[' ']"},"testId":{"description":"A unique identifier for the underlying native element that is used for testing purposes. The attribute is added as data-test attribute and acts as a shorthand for nativeAttributes={ 'data-test': 'test-Id' }.","type":"string | undefined"},"value":{"description":"The value of the control.","type":"string[] | undefined"}}} />
+
+
+
+## Events
+
+| Event       | Description                            | Type                      |
+| ----------- | -------------------------------------- | ------------------------- |
+| `catBlur`   | Emitted when the input loses focus.    | `CustomEvent<FocusEvent>` |
+| `catChange` | Emitted when the value is changed.     | `CustomEvent<string[]>`   |
+| `catFocus`  | Emitted when the input received focus. | `CustomEvent<FocusEvent>` |
+
+
+## Shadow Parts
+
+| Part      | Description               |
+| --------- | ------------------------- |
+| `"input"` | The native input element. |
+| `"label"` | The native label element. |

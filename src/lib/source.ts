@@ -2,7 +2,6 @@ import { loader } from 'fumadocs-core/source';
 import { lucideIconsPlugin } from 'fumadocs-core/source/lucide-icons';
 import { metaSchema, pageSchema } from 'fumadocs-core/source/schema';
 import { defineDocs } from 'fumadocs-mdx/macro';
-import { createCatalystSource } from './catalyst/source';
 import { docsContentRoute, docsImageRoute, docsRoute, docsGitConfig, gitConfig } from './config';
 
 const docs = defineDocs({
@@ -19,10 +18,7 @@ const docs = defineDocs({
 });
 
 export const source = loader({
-  source: {
-    docs: docs.toFumadocsSource(),
-    catalyst: await createCatalystSource(),
-  },
+  source: docs.toFumadocsSource(),
   baseUrl: docsRoute,
   plugins: [lucideIconsPlugin()],
 });
@@ -51,10 +47,11 @@ export function getPageMarkdownUrl(page: Page): PageAssetUrl {
 }
 
 export function getPageGithubUrl(page: Page): string | undefined {
-  if (page.type === 'catalyst') {
-    const view = page.slugs.length > 1 ? 'blob' : 'tree';
-    const { user, repo, branch } = gitConfig;
-    return `https://github.com/${user}/${repo}/${view}/${branch}/${page.data.githubPath}`;
+  const [section, slug] = page.slugs;
+
+  if (section === 'components' && slug) {
+    const { user, repo, branch, directory } = gitConfig;
+    return `https://github.com/${user}/${repo}/blob/${branch}/${directory}/${slug}.md`;
   }
 
   const { user, repo, branch } = docsGitConfig;

@@ -1,0 +1,74 @@
+## API reference
+
+<TypeTable type={{"accept":{"description":"Defines the file types the file input should accept.","type":"string | undefined"},"autoComplete":{"description":"Hint for form autofill feature.","type":"string","default":"off"},"clearable":{"description":"Whether the input should show a clear button.","type":"boolean","default":false},"dateMaskOptions":{"description":"Activates cleave-zen date mask on input","type":"FormatDateMaskOptions | undefined"},"disabled":{"description":"Whether the input is disabled.","type":"boolean","default":false},"errorUpdate":{"description":"Fine-grained control over when the errors are shown. Can be false to never show errors, true to show errors on blur, or a number to show errors change with the given delay in milliseconds or immediately on blur.","type":"boolean | number","default":0},"errors":{"description":"The validation errors for this input. Will render a hint under the input with the translated error message(s) error.${key}. If an object is passed, the keys will be used as error keys and the values translation parameters. If the value is true, the input will be marked as invalid without any hints under the input.","type":"boolean | string[] | undefined | { [key: string]: any; }"},"hint":{"description":"Optional hint text(s) to be displayed with the input.","type":"string | string[] | undefined"},"horizontal":{"description":"Whether the label is on top or left.","type":"boolean | undefined"},"icon":{"description":"The name of an icon to be displayed in the input.","type":"string | undefined"},"iconRight":{"description":"Display the icon on the right.","type":"boolean","default":false},"identifier":{"description":"A unique identifier for the input.","type":"string | undefined"},"label":{"description":"The label for the input.","type":"string","default":""},"labelHidden":{"description":"Visually hide the label, but still show it to assistive technologies like screen readers.","type":"boolean","default":false},"loading":{"description":"Displays the input in a loading state with a spinner.","type":"boolean","default":false},"max":{"description":"A maximum value for numeric values.","type":"number | string | undefined"},"maxLength":{"description":"A maximum length (number of characters) for textual values.","type":"number | undefined"},"min":{"description":"A minimum value for numeric values.","type":"number | string | undefined"},"minLength":{"description":"A minimum length (number of characters) for textual values.","type":"number | undefined"},"multiple":{"description":"Whether the input should allow multiple files to be selected.","type":"boolean | undefined"},"name":{"description":"The name of the form control. Submitted with the form as part of a name/value pair.","type":"string | undefined"},"nativeAttributes":{"description":"Attributes that will be added to the native HTML input element.","type":"undefined | { [key: string]: string; }"},"placeholder":{"description":"The placeholder text to display within the input.","type":"string | undefined"},"readonly":{"description":"The value is not editable.","type":"boolean","default":false},"required":{"description":"A value is required or must be check for the form to be submittable.","type":"boolean","default":false},"requiredMarker":{"description":"Whether the label need a marker to shown if the input is required or optional.","type":"\"none!\" | \"none\" | \"optional!\" | \"optional\" | \"required!\" | \"required\" | undefined","default":"optional"},"round":{"description":"Use round input edges.","type":"boolean","default":false},"testId":{"description":"A unique identifier for the underlying native element that is used for testing purposes. The attribute is added as data-test attribute and acts as a shorthand for nativeAttributes={ 'data-test': 'test-Id' }.","type":"string | undefined"},"textPrefix":{"description":"A textual prefix to be displayed in the input.","type":"string | undefined"},"textSuffix":{"description":"A textual suffix to be displayed in the input.","type":"string | undefined"},"timeMaskOptions":{"description":"Activates cleave-zen time mask on input","type":"FormatTimeMaskOptions | undefined"},"togglePassword":{"description":"Whether the input should show a password toggle button for password inputs.","type":"boolean","default":false},"type":{"description":"Type of form control.","type":"\"color\" | \"email\" | \"file\" | \"number\" | \"password\" | \"range\" | \"search\" | \"tel\" | \"text\" | \"url\"","default":"text"},"value":{"description":"The value of the control.","type":"string | undefined"}}} />
+
+
+
+## Events
+
+| Event            | Description                                                 | Type                            |
+| ---------------- | ----------------------------------------------------------- | ------------------------------- |
+| `catBlur`        | Emitted when the input loses focus.                         | `CustomEvent<FocusEvent>`       |
+| `catChange`      | Emitted when the value is changed.                          | `CustomEvent<string>`           |
+| `catChangeFiles` | Emitted if the input type is "file" and files are selected. | `CustomEvent<FileList \| null>` |
+| `catFocus`       | Emitted when the input received focus.                      | `CustomEvent<FocusEvent>`       |
+
+
+## Methods
+
+`clear() => Promise<void>`
+
+Clear the input.
+
+Returns
+
+Type: `Promise<void>`
+
+
+
+`doBlur() => Promise<void>`
+
+Programmatically remove focus from the input. Use this method instead of
+`input.blur()`.
+
+Returns
+
+Type: `Promise<void>`
+
+
+
+`doFocus(options?: FocusOptions) => Promise<void>`
+
+Programmatically move focus to the input. Use this method instead of
+`input.focus()`.
+
+Parameters
+
+| Name      | Type                        | Description                                                                      |
+| --------- | --------------------------- | -------------------------------------------------------------------------------- |
+| `options` | `FocusOptions \| undefined` | An optional object providing options to control aspects of the focusing process. |
+
+Returns
+
+Type: `Promise<void>`
+
+
+
+
+## Slots
+
+| Slot        | Description                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------- |
+| `"counter"` | Custom counter element to be displayed in the top right corner of the label.                                         |
+| `"hint"`    | Optional hint element to be displayed with the input.                                                                |
+| `"label"`   | The slotted label. If both the label property and the label slot are present, only the label slot will be displayed. |
+
+
+## Shadow Parts
+
+| Part       | Description               |
+| ---------- | ------------------------- |
+| `"input"`  | The native input element. |
+| `"label"`  | The native label element. |
+| `"prefix"` | The text prefix.          |
+| `"suffix"` | The text suffix.          |

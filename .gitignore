@@ -3,6 +3,7 @@
 
 # generated content
 .source
+/public/catalyst
 
 # test & build
 /coverage

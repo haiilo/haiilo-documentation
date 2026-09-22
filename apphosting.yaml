@@ -6,3 +6,16 @@ runConfig:
   # concurrency: 80
   # cpu: 1
   # memoryMiB: 512
+
+# prebuild runs before next build and pulls Catalyst API markdown from GitHub.
+# Keep this on the docs branch until that branch is merged in haiilo/catalyst.
+# GITHUB_TOKEN / GH_TOKEN comes from the App Hosting console (build + runtime).
+env:
+  - variable: CATALYST_DOCS_BRANCH
+    value: docs/flat-component-docs
+    availability:
+      - BUILD
+  - variable: CATALYST_DOCS_DIRECTORY
+    value: docs
+    availability:
+      - BUILD
