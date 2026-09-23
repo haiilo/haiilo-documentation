@@ -1,0 +1,9 @@
+{
+  "title": "Start",
+  "defaultOpen": true,
+  "pages": [
+    "before-you-start",
+    "shadow-dom",
+    "framework-setups"
+  ]
+}

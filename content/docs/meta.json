@@ -1,6 +1,9 @@
 {
   "pages": [
-    "index",
-    "components"
+    "start",
+    "basics",
+    "tokens",
+    "components",
+    "recipes"
   ]
 }

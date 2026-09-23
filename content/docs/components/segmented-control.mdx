@@ -1,0 +1,84 @@
+---
+title: "Segmented Control"
+description: "A horizontal set of options for closely related choices. The selection applies immediately."
+components: [cat-segmented-control]
+---
+
+Use a segmented control to switch between views or formats of the same content. Only one segment is selected at a time.
+
+### Do
+
+- Switch between different views or formats of the same content
+- Limit to at most **5** choices
+- Keep labels short
+
+### Don't
+
+- Use in a form — use **Radio Group** instead
+- Use for navigation or changing subject matter — use **Tabs** instead
+- Use to trigger an action — use **Button Group** instead
+
+## Examples
+
+### Basic
+
+```html preview
+<cat-segmented-control>
+  <cat-segment value="one">Option 1</cat-segment>
+  <cat-segment value="two">Option 2</cat-segment>
+  <cat-segment value="three">Option 3</cat-segment>
+</cat-segmented-control>
+```
+
+### Sizes
+
+Sizes `xs` through `xl` match Button. Default is `m`. Long labels ellipsize.
+
+```html preview
+<div class="cat-flex-col cat-gap-m">
+  <cat-segmented-control size="s">
+    <cat-segment value="one">S Option 1</cat-segment>
+    <cat-segment value="two">S Option 2</cat-segment>
+    <cat-segment value="three">S Option 3</cat-segment>
+  </cat-segmented-control>
+  <cat-segmented-control size="l" value="two">
+    <cat-segment value="one">L Option 1</cat-segment>
+    <cat-segment value="two">L Option 2</cat-segment>
+    <cat-segment value="three">L Option 3</cat-segment>
+  </cat-segmented-control>
+</div>
+```
+
+### Icons
+
+```html preview
+<cat-segmented-control>
+  <cat-segment value="one" icon="camera-filled">Option 1</cat-segment>
+  <cat-segment value="two" icon="star-filled" icon-only a11y-label="Option 2"></cat-segment>
+</cat-segmented-control>
+```
+
+### Disabled state
+
+```html preview
+<div class="cat-flex-col cat-gap-m">
+  <cat-segmented-control>
+    <cat-segment value="one">Option 1</cat-segment>
+    <cat-segment value="two" disabled>Option 2 disabled</cat-segment>
+    <cat-segment value="three">Option 3</cat-segment>
+  </cat-segmented-control>
+  <cat-segmented-control disabled>
+    <cat-segment value="one">Option 1</cat-segment>
+    <cat-segment value="two">Option 2</cat-segment>
+    <cat-segment value="three">Option 3</cat-segment>
+  </cat-segmented-control>
+</div>
+```
+
+## Accessibility
+
+Radio semantics: `role="radiogroup"` on the control; each segment is `role="radio"` with `aria-checked`.
+
+Set `a11y-label` on the control for a group name. Icon-only segments need `a11y-label` on the segment.
+
+**Keyboard:** roving tabindex on the selected segment; Arrow Right/Down and Arrow Left/Up move selection (wraps). Disabled segments are skipped.

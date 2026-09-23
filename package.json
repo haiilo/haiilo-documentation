@@ -12,12 +12,12 @@
     "postinstall": "pnpm sync:catalyst-assets",
     "test": "tsx --test src/lib/catalyst/*.test.ts",
     "types:check": "next typegen && tsc --noEmit",
-    "lint": "oxlint"
+    "lint": "oxlint",
+    "analyze": "npx fallow --only dead-code,dupes"
   },
   "dependencies": {
     "@haiilo/catalyst": "^14.13.0",
     "@haiilo/catalyst-icons": "^2.34.6",
-    "@haiilo/catalyst-tokens": "^14.13.0",
     "fumadocs-core": "16.14.4",
     "fumadocs-mdx": "15.2.3",
     "fumadocs-ui": "npm:@fumadocs/base-ui@16.14.4",
@@ -25,9 +25,11 @@
     "next": "16.3.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "takumi-js": "^2.7.2"
+    "takumi-js": "^2.7.2",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@haiilo/catalyst-tokens": "^14.13.0",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/mdx": "^2.0.14",
     "@types/node": "^26.2.0",

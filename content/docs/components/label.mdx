@@ -1,0 +1,19 @@
+---
+title: "Label"
+description: "Labels are used to create textual labels for other form components."
+---
+
+Labels associate text with form controls. In Catalyst, labels are usually built into form components (see Input, Checkbox, and related docs). Use the built-in `label` prop or label slot on those components so IDs work correctly across Shadow DOM.
+
+If you only need label styling for custom markup, use the `.cat-label` utility class.
+
+## Examples
+
+### Label utility class
+
+```html preview
+<div class="cat-flex-col cat-gap-s">
+  <label for="custom" class="cat-label">Custom label</label>
+  <input id="custom" />
+</div>
+```

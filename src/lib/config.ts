@@ -2,6 +2,7 @@ export const appName = 'Haiilo Catalyst';
 export const docsRoute = '/';
 export const docsImageRoute = '/og/docs';
 export const docsContentRoute = '/llms.mdx/docs';
+export const catalystApiDir = 'content/catalyst/api';
 
 export const gitConfig = {
   user: 'haiilo',

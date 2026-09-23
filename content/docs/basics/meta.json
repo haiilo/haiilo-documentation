@@ -1,0 +1,13 @@
+{
+  "title": "Basics",
+  "pages": [
+    "style-reset",
+    "layout",
+    "icons",
+    "colors",
+    "typography",
+    "theming",
+    "debugging",
+    "internationalization"
+  ]
+}

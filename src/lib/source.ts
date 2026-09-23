@@ -2,12 +2,16 @@ import { loader } from 'fumadocs-core/source';
 import { lucideIconsPlugin } from 'fumadocs-core/source/lucide-icons';
 import { metaSchema, pageSchema } from 'fumadocs-core/source/schema';
 import { defineDocs } from 'fumadocs-mdx/macro';
-import { docsContentRoute, docsImageRoute, docsRoute, docsGitConfig, gitConfig } from './config';
+import { z } from 'zod';
+import { docsContentRoute, docsImageRoute, docsRoute, docsGitConfig } from './config';
 
 const docs = defineDocs({
   dir: 'content/docs',
   docs: {
-    schema: pageSchema,
+    schema: pageSchema.extend({
+      /** Catalyst tags whose API reference is appended to the page, e.g. `[cat-tabs, cat-tab]`. */
+      components: z.array(z.string().startsWith('cat-')).optional(),
+    }),
     postprocess: {
       includeProcessedMarkdown: true,
     },
@@ -21,6 +25,10 @@ export const source = loader({
   source: docs.toFumadocsSource(),
   baseUrl: docsRoute,
   plugins: [lucideIconsPlugin()],
+  pageTree: {
+    // Applies to folders whose meta.json has no `pages` list.
+    sort: { by: 'name' },
+  },
 });
 
 type Page = (typeof source)['$inferPage'];
@@ -47,13 +55,6 @@ export function getPageMarkdownUrl(page: Page): PageAssetUrl {
 }
 
 export function getPageGithubUrl(page: Page): string | undefined {
-  const [section, slug] = page.slugs;
-
-  if (section === 'components' && slug) {
-    const { user, repo, branch, directory } = gitConfig;
-    return `https://github.com/${user}/${repo}/blob/${branch}/${directory}/${slug}.md`;
-  }
-
   const { user, repo, branch } = docsGitConfig;
   return `https://github.com/${user}/${repo}/blob/${branch}/content/docs/${page.path}`;
 }

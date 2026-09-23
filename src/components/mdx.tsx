@@ -1,3 +1,4 @@
+import { ComponentCards } from '@/components/component-cards';
 import { ComponentExample } from '@/components/component-example';
 import { TypeTable } from 'fumadocs-ui/components/type-table';
 import { CodeBlock, Pre } from 'fumadocs-ui/components/codeblock';
@@ -8,6 +9,7 @@ export function getMDXComponents(components?: MDXComponents) {
   return {
     ...defaultMdxComponents,
     TypeTable,
+    ComponentCards,
     ComponentExample,
     pre: ({ ref: _ref, ...props }) => (
       <CodeBlock {...props}>

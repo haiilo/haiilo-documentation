@@ -1,0 +1,50 @@
+---
+title: "Notification"
+description: "Notifications inform users about important news and optionally encourage them to take an action."
+---
+
+Notifications are **toasts** shown via `catNotificationService` from `@haiilo/catalyst`. They include a message, optional icon, and optional action button.
+
+```js
+import { catNotificationService } from '@haiilo/catalyst';
+
+catNotificationService.show('Your changes were saved.', {
+  icon: 'check-circle-filled',
+  action: 'Undo',
+});
+```
+
+Live previews here use buttons as placeholders; wire them up with the service in your app as above.
+
+## Examples
+
+### Basic notification
+
+```html preview
+<cat-button>Show notification</cat-button>
+```
+
+Call `catNotificationService.show(message, options?)` when the user activates the trigger.
+
+### Placement
+
+Use `placement` with `top` or `bottom` and `-left`, `-center`, or `-right` (for example `bottom-left`, `top-center`).
+
+### Light mode
+
+Default is **dark** (recommended for contrast). Set `mode: 'light'` only when you need a light toast on a dark surface.
+
+## Configuration
+
+| Option | Description | Default |
+| --- | --- | --- |
+| `autoClose` | Close after `duration` | `true` |
+| `duration` | Visible time (ms); pauses on hover/focus | `3000` |
+| `escapeMarkup` | Sanitize HTML in the message | `true` |
+| `onAction` | Called when the action button is clicked | — |
+| `onClick` | Called when the toast is clicked | — |
+| `onDismiss` | Called when the toast is dismissed | — |
+
+## Accessibility
+
+Aims for **WCAG 2.1 AA**. Ensure messages are concise and actions have clear labels.
