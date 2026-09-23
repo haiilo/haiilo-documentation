@@ -1,0 +1,24 @@
+{
+  "$schema": "./node_modules/fallow/schema.json",
+  "ignorePatterns": [
+    "content/**"
+  ],
+  "ignoreDependencies": [
+    "@haiilo/catalyst-tokens",
+    "lucide-react"
+  ],
+  "ignoreExports": [
+    {
+      "file": "src/app/**/route.ts",
+      "exports": ["generateStaticParams"]
+    },
+    {
+      "file": "src/app/**/route.tsx",
+      "exports": ["generateStaticParams"]
+    },
+    {
+      "file": "src/components/mdx.tsx",
+      "exports": ["useMDXComponents"]
+    }
+  ]
+}

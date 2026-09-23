@@ -1,0 +1,35 @@
+---
+title: "Divider"
+description: "Dividers represent thematic breaks between paragraph-level elements."
+---
+
+Dividers look like horizontal rules. They use the native `<hr>` element with Catalyst styles. The same look can be applied with the `.cat-hr` helper class on other elements.
+
+## Examples
+
+### Horizontal rule
+
+```html preview
+<div class="cat-flex-col cat-gap-s">
+  <p class="cat-m-0">Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
+  <hr class="cat-mv-m" />
+  <p class="cat-m-0">At vero eos et accusam et justo duo dolores et ea rebum.</p>
+</div>
+```
+
+### Helper class
+
+```html preview
+<div class="cat-flex-col cat-gap-s">
+  <p class="cat-m-0">Stet clita kasd gubergren, no sea takimata sanctus est.</p>
+  <div class="cat-hr cat-mv-m"></div>
+  <p class="cat-m-0">Lorem ipsum dolor sit amet.</p>
+</div>
+```
+
+## Accessibility
+
+This pattern targets **WCAG 2.1 AA**.
+
+- A divider is a **thematic break** and has meaning for assistive technology.
+- Do not use dividers only for decoration; use spacing or borders instead when there is no thematic break.

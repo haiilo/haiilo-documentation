@@ -26,20 +26,6 @@ function stripCatalystPreambleText(content: string): string {
   return lines.join('\n').trim();
 }
 
-export function extractOverview(content: string): string | undefined {
-  const match = content.match(/## Overview\s+([\s\S]*?)(?=\n## |\s*$)/i);
-  if (!match?.[1]) return undefined;
-  return stripHtmlComments(match[1]).trim().replace(/\s+/g, ' ');
-}
-
-function capitalize(part: string): string {
-  return part.charAt(0).toUpperCase() + part.slice(1);
-}
-
-export function titleFromSlug(slug: string): string {
-  return slug.split('-').map(capitalize).join(' ');
-}
-
 const STENCIL_PROPERTIES_HEADING = /^## Properties\s*$/gm;
 
 function escapeMdxExpressionSyntax(content: string): string {

@@ -1,0 +1,33 @@
+---
+title: "Navigation"
+description: "Use native HTML nav elements with Catalyst utility classes to build navigation patterns."
+---
+
+Navigation is not a single web component. Combine `<nav>`, lists, and Catalyst buttons or cards.
+
+- `.cat-nav-item` on `cat-button` — full width of the parent, square corners (no border radius on the sides that touch siblings).
+- `active` on the button — active indicator.
+- Works inside `cat-card` or dropdown content.
+- `.cat-nav-head` — section headline.
+- `.cat-nav-text` — supporting text (often with `cat-text-s` and `cat-muted`).
+
+## Examples
+
+### Card navigation
+
+```html preview
+<cat-card>
+  <nav>
+    <ul class="cat-list-unstyled cat-m-0 cat-p-0">
+      <li class="cat-nav-head">Navigation</li>
+      <li class="cat-nav-text cat-text-s cat-muted">Supporting text for the section</li>
+      <li><cat-button class="cat-nav-item" active>Nav item 1</cat-button></li>
+      <li><cat-button class="cat-nav-item">Nav item 2</cat-button></li>
+      <li><cat-button class="cat-nav-item" disabled>Nav item 3</cat-button></li>
+      <li><cat-button class="cat-nav-item">Nav item 4</cat-button></li>
+      <li class="cat-hr"></li>
+      <li><cat-button class="cat-nav-item" color="danger">Danger zone</cat-button></li>
+    </ul>
+  </nav>
+</cat-card>
+```
